@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {RiMenu3Line, RiCloseLine} from "react-icons/ri"
 import {CartWidget} from "../index"
+import {ItemList} from '../index'
 import logo from "../../assets/logo.svg"
 import "./navbar.css"
 const Navbar = () => {
@@ -43,6 +44,9 @@ const Navbar = () => {
       </div>
       <div className='nm__navbar-cart'>
         <CartWidget />
+      </div>
+      <div>
+        <ItemList />
       </div>
     </div>
   )
