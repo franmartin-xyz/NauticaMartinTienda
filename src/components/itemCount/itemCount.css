@@ -1,0 +1,45 @@
+.card__counter{
+    border-radius: 4px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  5px 5px 5px #5a5a5a,
+                -5px -5px 5px #ffffff;
+    box-sizing: border-box;
+    width: 150px;
+    display:flex;
+    flex-direction: column;
+    padding: 3px 5px;
+}
+.card__counter-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 3px 5px;
+}
+#addBtn{
+    width: 30px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+}
+#minusBtn{
+    width: 30px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 10px;
+
+}
+#quantity{
+    font-size:20px;
+    font-family: 'Manrope', sans-serif;
+}
+.cart__addBtn{
+    font-family: 'Manrope', sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 95%;
+    align-self:center; 
+    text-align: center;
+}

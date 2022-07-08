@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {RiMenu3Line, RiCloseLine} from "react-icons/ri"
 import {CartWidget} from "../index"
-import {ItemList} from '../index'
+import {CartItems} from '../index'
 import logo from "../../assets/logo.svg"
 import "./navbar.css"
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
         <CartWidget />
       </div>
       <div>
-        <ItemList />
+        <CartItems />
       </div>
     </div>
   )
