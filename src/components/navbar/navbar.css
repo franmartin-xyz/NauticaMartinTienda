@@ -91,7 +91,7 @@
     display: none;
 }
 
-@media screen and (max-width: 1050px) {
+ @media screen and (max-width: 1050px) {
     .nm__navbar-links_container {
         display: none;
     }
@@ -123,4 +123,4 @@
     .nm__navbar-menu_container-links-sign {
         display: block;
     }
-}
+} 

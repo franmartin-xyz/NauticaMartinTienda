@@ -1,8 +1,8 @@
 .card__item{
     border-radius: 2px;
     background: linear-gradient(145deg, #f0f0f0, #cacaca);
-    box-shadow:  5px 5px 5px #5a5a5a,
-                -5px -5px 5px #ffffff;
+    box-shadow:  3px 3px 3px #5a5a5a,
+                -3px -3px 3px #ffffff; 
     box-sizing: border-box;
     width: 300px;
     height: fit-content;
