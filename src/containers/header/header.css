@@ -29,6 +29,7 @@
     letter-spacing: -0.06em;
     color: #09f;
     animation: wave 3s ease-in-out infinite;
+    font-family: 'Manrope', sans-serif;
 }
 .header__title-bord{
     color: inherit;
@@ -42,6 +43,7 @@
     position: absolute;
     width: fit-content;
     left: 0px;
+    font-family: 'Manrope', sans-serif;
 }
 @keyframes wave {
     0%, 100% {
@@ -61,6 +63,7 @@
     line-height: 20px;
     word-spacing: 0.3em;
     color: white;
+    font-family: 'Manrope', sans-serif;
 }
 
  @media screen and (max-width: 1050px) {
@@ -78,9 +81,7 @@
         font-size: 18px;
         width: 400px;
     }
-    .header__container{
-        
-    }
+    
 }
 
 @media screen and (max-width: 550px) {
