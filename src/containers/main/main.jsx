@@ -1,12 +1,12 @@
 import React from 'react'
 import "./main.css"
-import { ItemCount } from '../../components'
+import { ItemListContainer} from "../../components/index"
 const main = () => {
   return (
-    <div>main
-      <ItemCount />
-    </div>
-    
+    <>
+    <title className='main__title'>PRODUCTOS</title>
+    <ItemListContainer />
+    </>
   )
 }
 

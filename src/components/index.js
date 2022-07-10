@@ -1,5 +1,4 @@
 export { default as Cta } from "./cta/cta"
 export { default as Navbar } from "./navbar/navbar"
 export { default as CartWidget} from "./cartWidget/cartWidget"
-export { default as CartItems} from "./itemListContainer/itemListContainer"
-export { default as ItemCount} from "./itemCount/itemCount"
+export { default as ItemListContainer} from "./itemListContainer/itemListContainer"

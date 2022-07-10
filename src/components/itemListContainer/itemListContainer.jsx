@@ -1,14 +1,27 @@
 import React from 'react'
 import "./itemListContainer.css"
-const CartItems = (props) => {
-  const arr = props.arr;
-  /* arr de items = {id="item1",prop2:"something",prop3:"something",amount:given by counter}*/ 
-    // function itemsCounter(items){
-    //    if(items.amount>0) return items.amount; else return ""
-    // }
+import {default as database} from "./dummyDataBase"
+import { useState } from 'react';
+import { useEffect } from 'react';
+import ItemList from './itemList/itemList';
+const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  useEffect(()=>{
+    let promiseItems = new Promise ( (resolve, reject) => {
+      setTimeout(() => {
+        resolve(database);
+      }, 2000);
+    });
+    promiseItems.then((response)=>{
+      setItems(database);
+    })
+  },[]);
+
   return (
-    <span className='nm__navbar-items'>{arr}</span>  
+    <>
+    <ItemList items={items}/>
+    </>
   )
 }
 
-export default CartItems
+export default ItemListContainer

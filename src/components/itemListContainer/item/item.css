@@ -1,20 +1,47 @@
-.card__counter{
-    border-radius: 4px;
+.card__item{
+    border-radius: 2px;
     background: linear-gradient(145deg, #f0f0f0, #cacaca);
     box-shadow:  5px 5px 5px #5a5a5a,
                 -5px -5px 5px #ffffff;
     box-sizing: border-box;
-    width: 150px;
+    width: 300px;
+    height: fit-content;
     display:flex;
     flex-direction: column;
     padding: 3px 5px;
 }
-.card__counter-btn{
+.card__item-descripion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card__item-descripion h1{
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+}
+.card__item-descripion p{
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    font-size:small;
+}
+.card__item-descripion span{
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    font-size: larger;
+}
+.card__item-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    padding: 3px 5px;
+}
+.card__item-btn-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    justify-items: center;
-    padding: 3px 5px;
+    width: 250px;
 }
 #addBtn{
     width: 30px;
@@ -42,4 +69,5 @@
     width: 95%;
     align-self:center; 
     text-align: center;
+    width: 250px;
 }
