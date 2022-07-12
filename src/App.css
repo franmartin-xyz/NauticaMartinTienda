@@ -4,9 +4,6 @@
     margin:0;
     scroll-behavior: smooth;
 }
-.App{
-    border:1px solid white;
-}
 body{
     background-color: var(--color-bg);
 }
