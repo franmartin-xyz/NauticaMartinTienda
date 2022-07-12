@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import "./itemcount.css"
 const ItemCount = (props) => {
     const stock = props.stock;
     let initial = 0;

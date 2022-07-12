@@ -5,13 +5,13 @@ import {Footer, Header, Main} from "./containers"
 
 const App = () => {
   return (
-      <div className='App'>
+      <div className='App'> 
         <div className='gradient__bg'>
           <Navbar />
           <Header />
-        </div>
-        <Main />
-        <Cta />
+          <Main />
+        </div> 
+        {/* <Cta /> */}
         <Footer />
       </div>
   )
