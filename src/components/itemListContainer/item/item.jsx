@@ -1,7 +1,7 @@
 import React from "react";
 import "./item.css";
 import {default as ItemCount} from "../itemcount/itemcount"
-
+import {default as ItemDescriptionContainer } from "../ItemDescriptionContainer/ItemDescriptionContainer"
 const Item = (props) => {
   let stock = props.data.stock
     return (
@@ -10,7 +10,7 @@ const Item = (props) => {
       <div className="card__item-descripion">
         <h1>{props.data.title}</h1>
         <img src={props.data.pictureUrl} alt="product img" />
-        <p>{props.data.description}</p>
+        <ItemDescriptionContainer item={props.data} key={props.data.is} />
         <span>Price:${props.data.price} | in stock:{props.data.stock}</span>
       </div>
       <ItemCount key={props.data.id} stock={stock}  />

@@ -1,0 +1,7 @@
+.item__descriptionBtn{
+    font-family: 'Manrope', sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+}

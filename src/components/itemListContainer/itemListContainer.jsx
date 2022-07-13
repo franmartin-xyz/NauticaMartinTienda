@@ -1,5 +1,4 @@
 import React from 'react'
-import "./itemListContainer.css"
 import {default as database} from "./dummyDataBase"
 import { useState } from 'react';
 import { useEffect } from 'react';

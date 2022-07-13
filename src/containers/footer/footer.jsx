@@ -4,7 +4,7 @@ import { SiInstagram,SiFacebook } from "react-icons/si"
 const footer = () => {
   const style = {fill:"white", width:"50px", height:"30px"}
   return (
-    <div className='footer__cont'>
+    <footer className='footer__cont'>
       <div className='footer__cont-socials'>
         <title>Nuestras Redes</title>
         <a href="https://instagram.com/nautica_martin" target="_blank"><SiInstagram style={style} /></a>
@@ -26,7 +26,7 @@ const footer = () => {
         <title>Links</title>
         <a href="#" target="_blank">Feedback</a>
       </div>
-    </div>
+    </footer>
   )
 }
 

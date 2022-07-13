@@ -6,7 +6,7 @@ import "./navbar.css"
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
-    <div className='nm__navbar'>
+    <nav className='nm__navbar'>
       <div className='nm__navbar-links'>
         <div className='nm__navbar-links-logo'>
           <img className='nm__img-logo' src={logo} alt="logo" />
@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className='nm__navbar-cart'>
         <CartWidget />
       </div>
-    </div>
+    </nav>
   )
 }
 
