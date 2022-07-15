@@ -10,7 +10,7 @@ const App = () => {
         <Navbar />
       </div>
       <Routes>
-        <Route path={"/"} element={ 
+        <Route index path={"NauticaMartinTienda/"} element={ 
           <div className='App' >
             <div className='gradient__bg'>
               <Header /> 

@@ -13,10 +13,10 @@ const Navbar = () => {
         <Link to="/"><img className='nm__img-logo' src={logo} alt="logo" /></Link>
         </div>
         <div className='nm__navbar-links_container'>
-          <p><Link to="/">Home</Link></p>
-          <p><Link to="/about">About</Link></p>
-          <p><Link to="/testimonials">Testimonials</Link></p>
-          <p><Link to="/contact">Contact</Link></p>
+          <p><Link to="NauticaMartinTienda/">Home</Link></p>
+          <p><Link to="NauticaMartinTienda/about">About</Link></p>
+          <p><Link to="NauticaMartinTienda/testimonials">Testimonials</Link></p>
+          <p><Link to="NauticaMartinTienda/contact">Contact</Link></p>
         </div>
       </div>
       <div className="nm__navbar-sign">
