@@ -9,7 +9,7 @@ const Item = (props) => {
       <>
     
       <div className="card__item">
-      <Link to={"NauticaMartinTienda/detail/:id"}>
+      <Link to={"detail/:id"}>
         <div className="card__item-descripion">
           <h1>{props.data.title}</h1>
           <img src={props.data.pictureUrl} alt="product img" />
