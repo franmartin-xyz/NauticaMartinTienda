@@ -1,7 +1,17 @@
 .item__descriptionBtn{
     font-family: 'Manrope', sans-serif;
-    border: 1px solid black;
-    border-radius: 5px;
     text-align: center;
-    width: fit-content;
+    border: none;
+    color: rgba(155,155,155,1);
+    background-color: transparent;
+    cursor:pointer;
+}
+.item__descriptionBtn:hover{
+    color: black;
+    font-weight: 600;
+}
+.item__descriptionP{
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    font-size:small;
 }

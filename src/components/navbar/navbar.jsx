@@ -3,19 +3,20 @@ import {RiMenu3Line, RiCloseLine} from "react-icons/ri"
 import {CartWidget} from "../index"
 import logo from "../../assets/logo.svg"
 import "./navbar.css"
+import {Link} from "react-router-dom";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <nav className='nm__navbar'>
       <div className='nm__navbar-links'>
         <div className='nm__navbar-links-logo'>
-          <img className='nm__img-logo' src={logo} alt="logo" />
+        <Link to="/"><img className='nm__img-logo' src={logo} alt="logo" /></Link>
         </div>
         <div className='nm__navbar-links_container'>
-          <p><a href="#home">Home</a></p>
-          <p><a href="#about">About</a></p>
-          <p><a href="#testimonials">Testimonials</a></p>
-          <p><a href="#contact">Contact</a></p>
+          <p><Link to="/">Home</Link></p>
+          <p><Link to="/about">About</Link></p>
+          <p><Link to="/testimonials">Testimonials</Link></p>
+          <p><Link to="/contact">Contact</Link></p>
         </div>
       </div>
       <div className="nm__navbar-sign">
@@ -29,10 +30,10 @@ const Navbar = () => {
         {toggleMenu && (
         <div className="nm__navbar-menu_container scale-up-center">
           <div className="nm__navbar-menu_container-links">
-            <p><a href="#home">Home</a></p>
-            <p><a href="#possibility">About</a></p>
-            <p><a href="#features">Testimonials</a></p>
-            <p><a href="#blog">Contact</a></p>
+          <p><Link to="/">Home</Link></p>
+          <p><Link to="/about">About</Link></p>
+          <p><Link to="/testimonials">Testimonials</Link></p>
+          <p><Link to="/contact">Contact</Link></p>
           </div>
           <div className="nm__navbar-menu_container-links-sign">
             <p>Sign in</p>

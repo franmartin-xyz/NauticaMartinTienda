@@ -13,6 +13,9 @@ const ItemCount = (props) => {
         setCount(count + 1);
       }
     };
+    let visible = "auto";
+    if(count === "" || count === 0) {visible="auto"} else {visible="pointer"}
+    let show = {"cursor":visible};
   return (
     <div className="card__item-btn">
           <div className="card__item-btn-container">
@@ -21,7 +24,7 @@ const ItemCount = (props) => {
             <button type="button" id="addBtn" onClick={() => {updateCount("+")}}>+</button>
           </div>
             <div className="cart__addBtn-container">
-            <button type="button" className="cart__addBtn" onClick={() => {}} disabled={count === "" || count === 0}>Añadir al carrito</button>
+            <button type="button" className="cart__addBtn" onClick={() => {}} style={show} disabled={count==="" || count ===0}>Añadir al carrito</button>
           </div>
     </div>
   )

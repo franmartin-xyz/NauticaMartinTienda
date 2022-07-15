@@ -4,14 +4,14 @@ import "./itemDescription.css"
 const ItemDescription = (props) => {
   let description = props.description;
   const [showMore, setShowMore] = useState(false);
-
+  let btn;
+  showMore ? btn = "mostrar menos" : btn = "mostrar más";
   return (
     <>
-        <p>
+        <p className='item__descriptionP'>
           {showMore ? description : `${description.substring(0,40)}`}
-          <button className='item__descriptionBtn' onClick={()=> setShowMore(!showMore)}>leer más</button>
+          <button className='item__descriptionBtn' onClick={()=> setShowMore(!showMore)}>{btn}</button>
         </p>
-        <button className='item__descriptionBtn'>ver producto</button>
     </>
   )
 }
