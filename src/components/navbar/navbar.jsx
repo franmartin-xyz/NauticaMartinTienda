@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className='nm__navbar'>
       <div className='nm__navbar-links'>
         <div className='nm__navbar-links-logo'>
-        <Link to="/"><img className='nm__img-logo' src={logo} alt="logo" /></Link>
+        <Link to="NauticaMartinTienda/"><img className='nm__img-logo' src={logo} alt="logo" /></Link>
         </div>
         <div className='nm__navbar-links_container'>
           <p><Link to="NauticaMartinTienda/">Home</Link></p>
@@ -30,10 +30,10 @@ const Navbar = () => {
         {toggleMenu && (
         <div className="nm__navbar-menu_container scale-up-center">
           <div className="nm__navbar-menu_container-links">
-          <p><Link to="/">Home</Link></p>
-          <p><Link to="/about">About</Link></p>
-          <p><Link to="/testimonials">Testimonials</Link></p>
-          <p><Link to="/contact">Contact</Link></p>
+          <p><Link to="NauticaMartinTienda/">Home</Link></p>
+          <p><Link to="NauticaMartinTienda/about">About</Link></p>
+          <p><Link to="NauticaMartinTienda/testimonials">Testimonials</Link></p>
+          <p><Link to="NauticaMartinTienda/contact">Contact</Link></p>
           </div>
           <div className="nm__navbar-menu_container-links-sign">
             <p>Sign in</p>
