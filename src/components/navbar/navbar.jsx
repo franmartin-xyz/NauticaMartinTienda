@@ -17,6 +17,7 @@ const Navbar = () => {
           <p><Link to="NauticaMartinTienda/about">About</Link></p>
           <p><Link to="NauticaMartinTienda/testimonials">Testimonials</Link></p>
           <p><Link to="NauticaMartinTienda/contact">Contact</Link></p>
+          <p><Link to="NauticaMartinTienda/products">Productos</Link></p>
         </div>
       </div>
       <div className="nm__navbar-sign">
@@ -34,6 +35,7 @@ const Navbar = () => {
           <p><Link to="NauticaMartinTienda/about">About</Link></p>
           <p><Link to="NauticaMartinTienda/testimonials">Testimonials</Link></p>
           <p><Link to="NauticaMartinTienda/contact">Contact</Link></p>
+          <p><Link to="NauticaMartinTienda/products">Productos</Link></p>
           </div>
           <div className="nm__navbar-menu_container-links-sign">
             <p>Sign in</p>

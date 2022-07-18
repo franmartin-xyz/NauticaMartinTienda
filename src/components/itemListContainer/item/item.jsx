@@ -9,14 +9,14 @@ const Item = (props) => {
       <>
     
       <div className="card__item">
-      <Link to={"detail/:id"}>
+      <Link to={`/NauticaMartinTienda/products/item/${props.data.id}`}>
         <div className="card__item-descripion">
           <h1>{props.data.title}</h1>
           <img src={props.data.pictureUrl} alt="product img" />
           <span>Price:${props.data.price} | in stock:{props.data.stock}</span>
         </div>
       </Link>
-        <ItemDescriptionContainer item={props.data} key={props.data.is} />
+        <ItemDescriptionContainer item={props.data} key={props.data.id} />
         <ItemCount key={props.data.id} stock={stock}  />
       </div>
     </>

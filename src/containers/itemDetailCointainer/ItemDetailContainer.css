@@ -1,0 +1,22 @@
+.ItemDetail__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-height: 74vh;
+}
+.ItemDetail__container title{
+    font-size: 3rem;
+    color: white;
+    display: block;
+    font-family: 'Manrope', sans-serif;
+}
+.ItemDetail__container p{
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    width: 20%;
+}
+.ItemDetail__container span{
+    color: white;
+    font-family: 'Manrope', sans-serif;
+}

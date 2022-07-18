@@ -1,7 +1,16 @@
+.mainTitle__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .main__title{
     color: white;
     font-size: 50px;
     display: block;
     text-align: center;
     font-family: 'Manrope', sans-serif;
+    width: fit-content;
+}
+.main__title:hover{
+    font-weight: 500;
 }
