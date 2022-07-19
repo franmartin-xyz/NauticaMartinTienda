@@ -41,7 +41,6 @@
     line-height: 82px;
     letter-spacing: -0.06em;
     position: absolute;
-    width: fit-content;
     left: 0px;
     font-family: 'Manrope', sans-serif;
 }
@@ -76,11 +75,11 @@
         background-position: -500px 0px;
     }
     .header__container-title{
-        position: absolute;
+        position:absolute;
         width: 100%;
         height: fit-content;
         left: 0px;
-        top: 420px;
+        top:440px;
     }
     .header__title{
         font-size: 55px;
