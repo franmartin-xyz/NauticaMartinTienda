@@ -1,19 +1,24 @@
 import React from 'react'
-import "./ItemDetailContainer.css"
 import {useParams} from "react-router-dom"
 import {default as database} from "../../components/itemListContainer/dummyDataBase"
-import { default as ItemCount } from "../../components/itemListContainer/itemcount/itemcount"
+import {default as ItemDetail} from "./ItemDetail"
+import { useState, useEffect } from 'react'
 const ItemDetailContainer = () => {
   const param = useParams();
-  const item = database[param.id - 1];
+  const [item, setItem]=useState("")
+    useEffect(()=>{
+        let promiseDescription = new Promise((res, rej)=>{
+           setTimeout(() => {
+              res(database[param.id - 1])
+           }, 2000);
+        });
+        promiseDescription.then((response)=>{
+            setItem(response);
+        })
+    });
+
   return (
-    <div className='ItemDetail__container'>
-        <title>{item.title}</title>
-        <img src={item.pictureUrl} alt="item image" />
-        <p>{item.description}</p>
-        <span>Price:${item.price} | in stock: {item.stock}</span>
-        <ItemCount stock={item.stock} />
-    </div>
+    <ItemDetail item={item} />
   )
 }
 
