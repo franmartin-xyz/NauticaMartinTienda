@@ -16,8 +16,8 @@ const Item = (props) => {
           <span>Price:${props.data.price} | in stock:{props.data.stock}</span>
         </div>
       </Link>
-        <ItemDescriptionContainer item={props.data} key={props.data.id} />
-        <ItemCount key={props.data.id} stock={stock}  />
+        <ItemDescriptionContainer item={props.data} />
+        <ItemCount  stock={stock}  />
       </div>
     </>
   )

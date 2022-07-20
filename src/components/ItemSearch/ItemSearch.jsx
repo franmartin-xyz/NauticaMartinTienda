@@ -8,10 +8,13 @@ const ItemSearch = () => {
     <>
     <div className='main__search-Cont'>
         <input placeholder='Buscar Producto'></input>
-        <span>Filtrar por Género</span>
+        <span>Filtrar por Categorías</span>
         <select onChange={(event)=>navigate(`/NauticaMartinTienda/products/category/${event.target.value}`)} value={param.name}>
-            <option value={"Male"}>Male</option>
-            <option value={"Female"}>Female</option>
+            <option value={"Instruments"}>Instrumentos</option>
+            <option value={"Recreation"}>Recreación</option>
+            <option value={"Accesories"}>Accesorios</option>
+            <option value={"Kayaks"}>Kayaks</option>
+            <option value={"Lubricants"}>Aceites y Lubricantes</option>
         </select>
     </div>    
     </>

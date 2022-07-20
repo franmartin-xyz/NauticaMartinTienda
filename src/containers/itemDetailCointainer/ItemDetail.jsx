@@ -5,10 +5,16 @@ const ItemDetail = (props) => {
     return (
         <div className='ItemDetail__container'>
             <title>{props.item.title}</title>
-            <img src={props.item.pictureUrl} alt="item image" />
+            {
+                props.item !== "" && <img src={props.item.pictureUrl} alt="item image" />
+            }
             <p>{props.item.description}</p>
-            <span>Price:${props.item.price} | in stock: {props.item.stock}</span>
-            <ItemCount stock={props.item.stock} />
+            {
+                props.item !== "" && <span>Price:${props.item.price} | in stock: {props.item.stock}</span>
+            }
+           {
+                props.item !== "" && <ItemCount stock={props.item.stock} />
+           } 
         </div>
   )
 }

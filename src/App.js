@@ -1,6 +1,6 @@
 import React from 'react'
 import "./App.css"
-import {Navbar,ItemFilterContainer} from "./components"
+import {Navbar} from "./components"
 import {Footer, Header, Main, ItemDetailContainer} from "./containers"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
        <div style={{"color":"white"}} >ERROR 404</div> 
       } />
       <Route path="NauticaMartinTienda/products/item/:id" element={<ItemDetailContainer />} /> 
-      <Route path="NauticaMartinTienda/products/category/:name" element={<ItemFilterContainer/>}/>
+      <Route path="NauticaMartinTienda/products/category/:name" element={<Main/>}/>
       <Route path='NauticaMartinTienda/products' element={<Main />}/>
       </Routes>
       <Footer />
