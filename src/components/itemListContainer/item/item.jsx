@@ -13,7 +13,7 @@ const Item = (props) => {
         <div className="card__item-descripion">
           <h1>{props.data.title}</h1>
           <img src={props.data.pictureUrl} alt="product img" />
-          <span>Price:${props.data.price} | in stock:{props.data.stock}</span>
+          <span>Precio:${props.data.price} | en stock:{props.data.stock}</span>
         </div>
       </Link>
         <ItemDescriptionContainer item={props.data} />

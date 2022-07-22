@@ -1,6 +1,6 @@
 import React from 'react'
 import "./main.css"
-import { ItemListContainer, ItemSearch} from "../../components/index"
+import { ItemListContainer} from "../../components/index"
 import {Link} from "react-router-dom"
 const main = () => {
   return (

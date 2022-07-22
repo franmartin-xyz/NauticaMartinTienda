@@ -14,9 +14,14 @@
 .ItemDetail__container p{
     color: white;
     font-family: 'Manrope', sans-serif;
-    width: 20%;
+    max-width: 20%;
 }
 .ItemDetail__container span{
     color: white;
     font-family: 'Manrope', sans-serif;
+}
+@media screen and (max-width: 768px) {
+    .ItemDetail__container p{
+        max-width: 90%;
+    }
 }
