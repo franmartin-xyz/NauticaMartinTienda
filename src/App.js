@@ -1,6 +1,6 @@
 import React from 'react'
 import "./App.css"
-import {Navbar} from "./components"
+import {Navbar,Cart} from "./components"
 import {Footer, Header, Main, ItemDetailContainer} from "./containers"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 const App = () => {
@@ -24,6 +24,7 @@ const App = () => {
       <Route path="NauticaMartinTienda/products/item/:id" element={<ItemDetailContainer />} /> 
       <Route path="NauticaMartinTienda/products/category/:name" element={<Main/>}/>
       <Route path='NauticaMartinTienda/products' element={<Main />}/>
+      <Route path='NauticaMartinTienda/cart' element={<Cart />}/>
       </Routes>
       <Footer />
     </BrowserRouter> 

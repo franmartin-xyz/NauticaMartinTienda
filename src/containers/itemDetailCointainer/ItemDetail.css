@@ -20,6 +20,18 @@
     color: white;
     font-family: 'Manrope', sans-serif;
 }
+.ItemDetail__cartBtn{
+    font-family: 'Manrope', sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-self:center; 
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+}
+.ItemDetail__cartBtn:hover{
+    font-weight: 600;
+}
 @media screen and (max-width: 768px) {
     .ItemDetail__container p{
         max-width: 90%;

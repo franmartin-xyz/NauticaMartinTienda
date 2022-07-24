@@ -17,7 +17,7 @@ const Item = (props) => {
         </div>
       </Link>
         <ItemDescriptionContainer item={props.data} />
-        <ItemCount  stock={stock}  />
+        <ItemCount  stock={stock} initial={0}  />
       </div>
     </>
   )
