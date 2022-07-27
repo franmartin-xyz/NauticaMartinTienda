@@ -3,7 +3,9 @@
     padding: 0;
     margin:0;
     scroll-behavior: smooth;
-    
+}
+*::-webkit-scrollbar{
+    display: none;
 }
 body{
     background-color: var(--color-bg);

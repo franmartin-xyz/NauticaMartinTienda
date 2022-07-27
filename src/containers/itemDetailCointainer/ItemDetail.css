@@ -20,6 +20,7 @@
     color: white;
     font-family: 'Manrope', sans-serif;
 }
+
 .ItemDetail__cartBtn{
     font-family: 'Manrope', sans-serif;
     border: 1px solid black;
@@ -35,5 +36,11 @@
 @media screen and (max-width: 768px) {
     .ItemDetail__container p{
         max-width: 90%;
+    }
+    .ItemDetail__container title{
+        font-size: 2rem;
+    }
+    .ItemDetail__container img{
+        width: 90%;
     }
 }

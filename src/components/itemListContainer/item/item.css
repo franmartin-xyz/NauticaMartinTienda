@@ -18,6 +18,7 @@
 .card__item-descripion h1{
     font-family: 'Manrope', sans-serif;
     text-align: center;
+    color: black;
 }
 .card__item-descripion span{
     font-family: 'Manrope', sans-serif;

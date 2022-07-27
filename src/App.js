@@ -3,8 +3,10 @@ import "./App.css"
 import {Navbar,Cart} from "./components"
 import {Footer, Header, Main, ItemDetailContainer} from "./containers"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { CartContext } from './context/CartContext'
 const App = () => {
   return (
+    <CartContext>
     <BrowserRouter>
       <div className='gradient__bg'>
         <Navbar />
@@ -28,6 +30,7 @@ const App = () => {
       </Routes>
       <Footer />
     </BrowserRouter> 
+    </CartContext>
   )
 }
 

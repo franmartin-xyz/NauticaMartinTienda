@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { default as ItemCount } from "../../components/itemListContainer/itemcount/itemcount"
 import "./ItemDetail.css"
 import {Link} from "react-router-dom"
+import  { cartContext } from '../../context/CartContext'
 const ItemDetail = (props) => {
+    const CartItems = useContext(cartContext);
     const[amount,setAmount] = useState(0);
     function onAdd(amount){
         setAmount(amount);
+        CartItems.addItem(props.item,amount);
     }
-    console.log(props.item)
     return (
         <>
         { props.item !== "" &&(
