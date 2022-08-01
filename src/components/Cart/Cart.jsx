@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {cartContext} from '../../context/CartContext'
 import "./Cart.css"
-const Cart = () => {
+const Cart = (props) => {
+  const CartItems = useContext(cartContext);
+  const handleBtnClick = (id)=>{
+    CartItems.removeItem(id);
+    props.setstate([...CartItems.CartItems]);
+  }
   return (
-    <div>
-        <h1>CART</h1>
+    <div className='Cart__container'>
+      <img className='Cart__img' src={props.data.pictureUrl} alt="" />
+      <title className='Cart__title'>{props.data.title}</title>
+      <div className='Cart__container-title'>
+      <div className='Cart__btnContainer'><button className='Cart__btn' onClick={()=>handleBtnClick(props.data.id)}>Eliminar</button></div>
+      <span className='Cart__price'>Precio:${props.data.price} | Cantidad: {props.data.quantity}</span>
+      </div>
     </div>
   )
 }

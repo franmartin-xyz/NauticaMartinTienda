@@ -19,7 +19,7 @@ const ItemDetail = (props) => {
                 <p>{props.item.description}</p>
                 <span>Price:${props.item.price} | in stock: {props.item.stock}</span>
                 {
-                    props.item !== "" && amount === 0 ? <ItemCount stock={props.item.stock} onAdd={onAdd} initial={0} /> : <><Link to={"/NauticaMartinTienda/cart"}><button className='ItemDetail__cartBtn'>Ir al carrito</button></Link></>
+                    props.item !== "" && amount === 0 ? <ItemCount stock={props.item.stock} onAdd={onAdd} initial={0} id={props.item.id} /> : <><Link to={"/NauticaMartinTienda/cart"}><button className='ItemDetail__cartBtn'>Ir al carrito</button></Link></>
                 } 
             </div>)
         }

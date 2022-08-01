@@ -1,0 +1,24 @@
+.CartContainer__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.CartContainer__title-cont{
+    display: flex;
+    justify-content: center;
+}
+.CartContainer__title{
+    display: block;
+    color: white;
+    align-self: center;
+    font-size: 2rem;
+    border-radius: 20px;
+    border: 1px solid white;
+    width: fit-content;
+    padding: 8px;
+}
+.CartContainer__title:hover{
+    background-color: #0A2F54;
+}
+

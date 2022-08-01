@@ -1,3 +1,44 @@
-h1{
+.Cart__container{
+    display: flex;
+    flex-direction: row;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
+    width: 90%;
+    justify-content: space-between;
+}
+.Cart__container-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;   
+    width:fit-content;
+    gap: 5px;
+}
+.Cart__title{
     color: white;
+    display:inherit;
+    font-size: 2rem;
+    font-family: 'Manrope', sans-serif;
+}
+.Cart__price{
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    justify-self: end;
+    font-size: 1.5rem;
+}
+.Cart__img{
+    width: 150px;
+}
+.Cart__btn{
+    display: block;
+    color: white;
+    background-color: transparent;
+    align-self: center;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: fit-content;
+    padding: 5px;
+}
+.Cart__btn:hover{
+    background: #0A2F54;
 }

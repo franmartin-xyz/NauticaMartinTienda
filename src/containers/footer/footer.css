@@ -4,6 +4,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: auto;
+}
+.footer__cont-socials{
+    height: fit-content;
+}
+.footer__cont-resources{
+    height: fit-content;
+}
+.footer__cont-legal{
+    height: fit-content;
+}
+.footer__cont-links{
+    height: fit-content;
 }
 .footer__cont title{
  color: white;
