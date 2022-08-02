@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/NauticaMartinTienda/static/css/main.ce355b4c.css",
-    "main.js": "/NauticaMartinTienda/static/js/main.11580584.js",
+    "main.css": "/NauticaMartinTienda/static/css/main.0264427a.css",
+    "main.js": "/NauticaMartinTienda/static/js/main.6828f4ba.js",
     "static/media/logo.svg": "/NauticaMartinTienda/static/media/logo.7762be0da911fb6ca52ed2cc6740a52d.svg",
     "index.html": "/NauticaMartinTienda/index.html",
-    "main.ce355b4c.css.map": "/NauticaMartinTienda/static/css/main.ce355b4c.css.map",
-    "main.11580584.js.map": "/NauticaMartinTienda/static/js/main.11580584.js.map"
+    "main.0264427a.css.map": "/NauticaMartinTienda/static/css/main.0264427a.css.map",
+    "main.6828f4ba.js.map": "/NauticaMartinTienda/static/js/main.6828f4ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce355b4c.css",
-    "static/js/main.11580584.js"
+    "static/css/main.0264427a.css",
+    "static/js/main.6828f4ba.js"
   ]
 }
