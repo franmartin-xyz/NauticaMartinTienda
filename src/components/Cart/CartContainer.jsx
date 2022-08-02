@@ -5,17 +5,17 @@ import {Link} from "react-router-dom"
 import "./CartContainer.css"
 import CartActions from './CartActions'
 const CartContainer = () => {
-  const CartItems = useContext(cartContext);
-  const [list,setList] = useState(CartItems.CartItems);
+  const {cartItems} = useContext(cartContext);
+  const [list,setList] = useState(cartItems);
   return (
     <div className='CartContainer__container'>
     {
-      list.length > 0 ?
-      list.map(item => {return(<Cart key={item.id} data={item} setstate={setList} state={list} />)}):
+      cartItems.length > 0 ?
+      cartItems.map(item => {return(<Cart key={item.id} data={item} />)}):
       <Link to="/NauticaMartinTienda/products"><div className='CartContainer__title-cont'><title className='CartContainer__title'>No Hay Productos</title></div></Link>
     }
     {
-     list.length > 0 && <CartActions setstate={setList}/>
+     cartItems.length > 0 && <CartActions/>
     }
     </div>
   )

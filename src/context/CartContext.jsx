@@ -1,12 +1,13 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 export const cartContext = React.createContext([]);
 
 export const CartContext = (props) => {
-    const [CartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
+    useEffect(()=>{console.log(cartItems)},[cartItems]);
     const addItem= (item,quantity)=>{
         let index = isInCart(item.id);
         if(index>-1){
-            let Cart = CartItems;
+            let Cart = cartItems;
             Cart[index].quantity+=quantity;
             setCartItems(Cart)
         }else{
@@ -14,19 +15,25 @@ export const CartContext = (props) => {
         }
     }
     const totalPrice = ()=>{
-        let sum = CartItems.reduce((acum, item)=>{return acum + item.price},0 );
+        let sum = cartItems.reduce((acum, item)=>{return acum + item.price},0 );
         return sum;
     }
-    const howManyItems = ()=>{ setCartItems(CartItems); return CartItems.length}
+    const howManyItems = ()=>{ setCartItems(cartItems); return cartItems.length}
     const removeItem = (itemId)=>{
-        let Cart = CartItems;
-        Cart.splice(isInCart(itemId),1);
-        setCartItems(Cart)
+        let cart = [];
+        // Cart.splice(isInCart(itemId),1);
+        console.log(cartItems);
+        cartItems.forEach(item => console.log(item));
+        cart = cartItems.filter(item => item.id != itemId);
+        console.log(cart);
+        setCartItems(cart);
+        // setCartItems(prevItems => console.log(prevItems));
+        // setCartItems(prevItems => prevItems.filter(item => item.id == itemId))
     }
     const clear = ()=>{setCartItems([])}
-    const isInCart = (id)=>{return CartItems.findIndex(e=>{return e.id === id ? true : false })}
+    const isInCart = (id)=>{return cartItems.findIndex(e=>{return e.id === id ? true : false })}
     return(
-    <cartContext.Provider value={{CartItems, setCartItems,addItem,removeItem,clear,isInCart,howManyItems,totalPrice}}>
+    <cartContext.Provider value={{cartItems, setCartItems,addItem,removeItem,clear,isInCart,howManyItems,totalPrice}}>
         {props.children}
     </cartContext.Provider>
   )

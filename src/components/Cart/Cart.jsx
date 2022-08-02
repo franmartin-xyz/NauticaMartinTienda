@@ -2,10 +2,9 @@ import React, { useContext } from 'react'
 import {cartContext} from '../../context/CartContext'
 import "./Cart.css"
 const Cart = (props) => {
-  const CartItems = useContext(cartContext);
+  const {cartItems, removeItem} = useContext(cartContext);
   const handleBtnClick = (id)=>{
-    CartItems.removeItem(id);
-    props.setstate([...CartItems.CartItems]);
+    removeItem(id);
   }
   return (
     <div className='Cart__container'>

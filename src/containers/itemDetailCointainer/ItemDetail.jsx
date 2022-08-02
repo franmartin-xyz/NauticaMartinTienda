@@ -4,11 +4,11 @@ import "./ItemDetail.css"
 import {Link} from "react-router-dom"
 import  { cartContext } from '../../context/CartContext'
 const ItemDetail = (props) => {
-    const CartItems = useContext(cartContext);
+    const {cartItems,addItem} = useContext(cartContext);
     const[amount,setAmount] = useState(0);
     function onAdd(amount){
         setAmount(amount);
-        CartItems.addItem(props.item,amount);
+        addItem(props.item,amount);
     }
     return (
         <>

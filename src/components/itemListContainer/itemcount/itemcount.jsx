@@ -3,8 +3,8 @@ import { useState,useContext } from 'react';
 import "./itemcount.css"
 import { cartContext } from "../../../context/CartContext";
 const ItemCount = ({stock,onAdd,initial,id}) => {
-  const CartItems = useContext(cartContext);
-   if (CartItems.isInCart(id) > -1) initial = CartItems.CartItems[CartItems.isInCart(id)].quantity;
+  const {cartItems, isInCart} = useContext(cartContext);
+   if (isInCart(id) > -1) initial = cartItems[isInCart(id)].quantity;
     const [count, setCount] = useState(initial);
     const updateCount = (op) => {
       if (op === "_" && count > initial) {
