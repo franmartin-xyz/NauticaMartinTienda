@@ -4,6 +4,7 @@ import {default as database} from "../../components/itemListContainer/dummyDataB
 import {default as ItemDetail} from "./ItemDetail"
 import { useState, useEffect } from 'react'
 import {default as Spinner} from "../../components/LoadingSpinner/LoadingSpinner"
+import "./ItemDetailContainer.css"
 const ItemDetailContainer = () => {
   const [Loading, setLoading]= useState(true);
   const param = useParams();
@@ -21,12 +22,12 @@ const ItemDetailContainer = () => {
     });
 
   return (
-    <>
+    <div className='ItemDetailContainer__container gradient__bg'>
     {
       Loading && <Spinner/>
     }
     <ItemDetail item={item} />
-    </>
+    </div>
   )
 }
 

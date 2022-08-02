@@ -26,14 +26,14 @@ const ItemListContainer = () => {
   },[param.name]);
 
   return (
-    <>
+    <div>
     <title id='ItemFiler__title'>Categoria: {param.name}</title>
     <ItemSearch/>
     {
       Loading && <Spinner/>
     }
     <ItemList items={items}/>
-    </>
+    </div>
   )
 }
 

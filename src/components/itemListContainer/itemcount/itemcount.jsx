@@ -7,7 +7,7 @@ const ItemCount = ({stock,onAdd,initial,id}) => {
    if (isInCart(id) > -1) initial = cartItems[isInCart(id)].quantity;
     const [count, setCount] = useState(initial);
     const updateCount = (op) => {
-      if (op === "_" && count > initial) {
+      if (op === "_" && (count > initial)) {
         setCount(count - 1);
       }
       if (op === "+" && count < stock) {
@@ -20,12 +20,12 @@ const ItemCount = ({stock,onAdd,initial,id}) => {
   return (
     <div className="card__item-btn">
           <div className="card__item-btn-container">
-            <button disabled={count>0 && count === 0} type="button" id="minusBtn" onClick={() => updateCount("_")}>_</button>
+            <button disabled={count === initial} type="button" id="minusBtn" onClick={() => updateCount("_")}>_</button>
             <span id="quantity">{count}</span>
             <button disabled={count>0 && count === stock} type="button" id="addBtn" onClick={() => updateCount("+")}>+</button>
           </div>
             <div className="cart__addBtn-container">
-            <button type="button" className="cart__addBtn" onClick={() => onAdd(count)} style={show} disabled={count==="" || count === initial}>Añadir al carrito</button>
+            <button type="button" className="cart__addBtn" onClick={() => {onAdd(count-initial);}} style={show} disabled={count==="" || count === initial}>Añadir al carrito</button>
           </div>
     </div>
   )

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    min-height: 74vh;
+    min-height: fit-content;
 }
 .ItemDetail__container title{
     font-size: 3rem;
