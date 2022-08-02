@@ -1,3 +1,6 @@
+.ItemListContainer__container{
+    min-height: 70vh;
+}
 .mainTitle__container{
     display: flex;
     flex-direction: row;

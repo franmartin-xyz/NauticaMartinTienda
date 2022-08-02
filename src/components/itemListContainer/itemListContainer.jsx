@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import {ItemSearch, Loading as Spinner} from "../index"
 import { useParams } from "react-router-dom"
 import ItemList from './itemList/itemList';
+import {Link} from "react-router-dom"
+import "./main.css"
 const ItemListContainer = () => {
   const [Loading, setLoading] = useState(true);
   let param = useParams();
@@ -26,6 +28,10 @@ const ItemListContainer = () => {
   },[param.name]);
 
   return (
+    <div className='ItemListContainer__container gradient__bg'>
+    <div className='mainTitle__container'>
+      <Link to={"/NauticaMartinTienda/products"}><title className='main__title'>PRODUCTOS</title></Link>
+    </div >
     <div>
     <title id='ItemFiler__title'>Categoria: {param.name}</title>
     <ItemSearch/>
@@ -33,6 +39,7 @@ const ItemListContainer = () => {
       Loading && <Spinner/>
     }
     <ItemList items={items}/>
+    </div>
     </div>
   )
 }

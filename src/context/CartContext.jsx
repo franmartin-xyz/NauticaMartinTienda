@@ -15,7 +15,7 @@ export const CartContext = (props) => {
         }
     }
     const totalPrice = ()=>{
-        let sum = cartItems.reduce((acum, item)=>{return acum + item.price},0 );
+        let sum = cartItems.reduce((acum, item)=>{return acum + item.price * item.quantity},0 );
         return sum;
     }
     const howManyItems = ()=>{ setCartItems(cartItems); return cartItems.length}
