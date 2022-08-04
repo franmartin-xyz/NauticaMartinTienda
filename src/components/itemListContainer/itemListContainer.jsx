@@ -1,5 +1,5 @@
 import React from 'react'
-import {default as database} from "./dummyDataBase"
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {ItemSearch, Loading as Spinner} from "../index"
@@ -11,22 +11,20 @@ const ItemListContainer = () => {
   const [Loading, setLoading] = useState(true);
   let param = useParams();
   const [items, setItems] = useState([]);
-  useEffect(()=>{
-    let promiseItems = new Promise ( (resolve, reject) => {
-      setTimeout(() => {
-       if(param.name === undefined) {resolve(database);}
+  useEffect(() => {
+    setLoading(true);
+    const db = getFirestore();
+    const itemsCollection = collection(db, "products");
+    getDocs(itemsCollection).then((snapshot) => {
+      const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      if(param.name === undefined) { setItems(data[0].items);}
        else{
-        const itemsFiltered = database.filter((product)=>{return product.category === param.name})
-        resolve(itemsFiltered);
+        const itemsFiltered = data[0].items.filter((product)=>{return product.category === param.name});
+        setItems(itemsFiltered);
        }
-      }, 2000);
-    });
-    promiseItems.then((response)=>{
       setLoading(false);
-      setItems(response);
-    })
-  },[param.name]);
-
+    });
+  }, [param]);
   return (
     <div className='ItemListContainer__container gradient__bg'>
     <div className='mainTitle__container'>

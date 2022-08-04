@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext} from 'react'
 import {cartContext} from '../../context/CartContext'
 import Cart from "./Cart"
 import {Link} from "react-router-dom"
@@ -6,7 +6,6 @@ import "./CartContainer.css"
 import CartActions from './CartActions'
 const CartContainer = () => {
   const {cartItems} = useContext(cartContext);
-  const [list,setList] = useState(cartItems);
   return (
     <div className='CartContainer__container'>
     {

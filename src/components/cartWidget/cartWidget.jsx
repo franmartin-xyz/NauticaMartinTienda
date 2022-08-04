@@ -5,11 +5,7 @@ import "./cartWidget.css"
 import {Link} from "react-router-dom"
 const CartWidget = () => {
     const cartStyle = { fill:"white", width:"50px", height:"30px"}
-    const {cartItems} = useContext(cartContext);
-    useEffect( () => {
-        console.log("re-render widget", cartItems.length)
-    },[cartItems])
-    
+    const {cartItems} = useContext(cartContext);    
     return (
         <>
         {cartItems.length>0 &&<Link to="/NauticaMartinTienda/cart"><RiShoppingCart2Fill style={cartStyle} /></Link> }

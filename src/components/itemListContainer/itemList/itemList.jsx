@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Item from '../item/item'
 import "./itemList.css"
 const ItemList = (props) => {
