@@ -7,11 +7,13 @@ export const CartContext = (props) => {
     // let items = localStorage.getItem("cart");
     // items !== "" && setCartItems(items);
     const sendDoc = (Data) =>{
+        Data.forEach(o => {
         const db = getFirestore();
         const orderCollection = collection(db, "products");
-        addDoc(orderCollection, Data)
+        addDoc(orderCollection, o)
         .then((res)=>console.log(res.id))
         .catch((err)=>console.log("error",err));
+        });
     };
 
     const sendOrder = (totalPrice, buyerData) =>{

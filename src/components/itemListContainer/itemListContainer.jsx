@@ -1,5 +1,5 @@
 import React from 'react'
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {ItemSearch, Loading as Spinner} from "../index"
@@ -11,19 +11,33 @@ const ItemListContainer = () => {
   const [Loading, setLoading] = useState(true);
   let param = useParams();
   const [items, setItems] = useState([]);
+  const handlesearch = (e)=>{
+    e.preventDefault();
+    let string = document.getElementById("search").value;
+    const itemsFiltred = items.filter((item)=>{let t = item.title.toLowerCase(); return t.includes(string) })
+    console.log(string === "" || itemsFiltred.length === 0 )
+    if ( string === "" || itemsFiltred.length === 0 ){
+      setLoading(true);
+      const db = getFirestore();
+      const itemsCollection = collection(db, "products");
+      getDocs(itemsCollection).then((snapshot) => {const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));setItems(data);console.log(data)});
+      setLoading(false);}
+    else { setItems(itemsFiltred);}
+  }
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
     const itemsCollection = collection(db, "products");
-    getDocs(itemsCollection).then((snapshot) => {
-      const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      if(param.name === undefined) { setItems(data[0].items);}
+      if(param.name === undefined) { 
+        getDocs(itemsCollection).then((snapshot) => {const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));setItems(data)})
+      }
        else{
-        const itemsFiltered = data[0].items.filter((product)=>{return product.category === param.name});
-        setItems(itemsFiltered);
+        const q = query(itemsCollection,where("category","==",param.name));
+        getDocs(q).then((snapshot)=>{
+          const data = snapshot.docs.map((doc)=>({id:doc.id,...doc.data()}));
+          setItems(data);}) 
        }
       setLoading(false);
-    });
   }, [param]);
   return (
     <div className='ItemListContainer__container gradient__bg'>
@@ -32,7 +46,7 @@ const ItemListContainer = () => {
     </div >
     <div>
     <title id='ItemFiler__title'>Categoria: {param.name}</title>
-    <ItemSearch/>
+    <ItemSearch handlesearch={handlesearch} />
     {
       Loading && <Spinner/>
     }

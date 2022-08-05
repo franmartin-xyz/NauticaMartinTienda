@@ -4,7 +4,6 @@ import {default as ItemCount} from "../itemcount/itemcount"
 import {default as ItemDescriptionContainer } from "../ItemDescriptionContainer/ItemDescriptionContainer"
 import {Link} from "react-router-dom";
 const Item = (props) => {
-  let stock = props.data.stock
     return (
       <>
     

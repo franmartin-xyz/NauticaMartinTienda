@@ -1,6 +1,6 @@
 import React from 'react'
 import {useParams} from "react-router-dom"
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore,getDocs,collection, query, where } from "firebase/firestore";
 import {default as ItemDetail} from "./ItemDetail"
 import { useState, useEffect } from 'react'
 import {default as Spinner} from "../../components/LoadingSpinner/LoadingSpinner"
@@ -12,16 +12,12 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true);
     const db = getFirestore();
-    const itemsCollection = collection(db, "products");
-    getDocs(itemsCollection).then((snapshot) => {
-      const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      if(param.name === undefined) { setItems(data[0].items[(param.id)-1]); console.log(param.name);}
-       else{
-        const itemsFiltered = data[0].items.filter((product)=>{return product.category === param.name});
-        setItems(itemsFiltered);
-       }
+    const itemId = collection(db,"products");
+    const q = query(itemId,where("id","==",Number(param.id)));
+    getDocs(q).then((snapshot) => {
+      const data = snapshot.docs.map((doc)=>({id:doc.id,...doc.data()}));
+      setItems(data[0]);})
       setLoading(false);
-    });
   }, [param]);
 
   return (
