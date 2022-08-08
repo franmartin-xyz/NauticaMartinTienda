@@ -1,26 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {RiMenu3Line, RiCloseLine} from "react-icons/ri"
 import {CartWidget} from "../index"
 import logo from "../../assets/logo.svg"
 import "./navbar.css"
 import {Link} from "react-router-dom";
 import jwt_decode from "jwt-decode"
+import { userLoginContext } from '../../context/LoginContext'
 const Navbar = () => {
+  const {user, setUser} = useContext(userLoginContext);
+  // const [user,setUser] = useState({});
   const [toggleMenu, setToggleMenu] = useState(false);
-  const handleLogin = (res)=>{var userLoginJwt = jwt_decode(res.credential);
-  console.log(userLoginJwt);};
+  const handleLogin = (res)=>{
+    let userLoginJwt = jwt_decode(res.credential);
+    console.log(userLoginJwt);
+    setUser(userLoginJwt);
+    document.getElementById("singInDiv").hidden = true;
+  };
   useEffect(()=>{
 /* global google*/
-google.accounts.id.initialize({
+window.google.accounts.id.initialize({
   client_id:"322253423612-n7fm6e1667nkp6pfkj41caotj0qk6254.apps.googleusercontent.com",
   callback: handleLogin,
 });
-google.accounts.id.renderButton(
+window.google.accounts.id.renderButton(
   document.getElementById("singInDiv"),
-  {theme:"outline",size:"small"}
+  {theme:"outline",size:"medium"}
 )
-console.log(google.accounts.id.renderButton());
   },[])
+  function handleSingOut(e){
+    setUser({});
+    document.getElementById("singInDiv").hidden = false;
+  }
   return (
     <nav className='nm__navbar'>
       <div className='nm__navbar-links'>
@@ -36,7 +46,10 @@ console.log(google.accounts.id.renderButton());
         </div>
       </div>
       <div id='singInDiv'></div>
-        <div id='singOutDiv'></div>
+      {Object.keys(user).length != 0 &&  <div className="nm__navbar-sign">
+        <span className='nm__navbar-sign-welcome'>Hola! {user.given_name}</span>
+        <button type="button" onClick={(e)=>handleSingOut(e)}>Sign Out</button>
+      </div>}
       <div className="nm__navbar-menu">
         {toggleMenu
           ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
