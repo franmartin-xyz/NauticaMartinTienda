@@ -1,4 +1,5 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState, useRef} from 'react'
+import emailjs from "@emailjs/browser";
 import {addDoc, collection, getFirestore, updateDoc, doc, writeBatch,getDocs,query,where,documentId} from "firebase/firestore"
 export const cartContext = React.createContext([]);
 
@@ -12,16 +13,13 @@ export const CartContext = (props) => {
     const sendPurchase = async (buyerData,setValidPurchase,setInvalidPurchase) => {
         const db = getFirestore();
         const orderCollection = collection(db, "orders");
-        const products = collection(db, "products");
         const order = {
           items: cartItems,
           total: totalPrice(),
           buyer: buyerData,
           date: new Date().toLocaleString(),
         };
-        // addDoc(orderCollection, order)
-        //   .then((res) => console.log(res.id))
-        //   .catch((err) => console.log("error", err));
+        console.log(buyerData);
         const batch = writeBatch(db);
         const idList = cartItems.map((product) => product.id);
         const withoutStock = [];
@@ -32,7 +30,6 @@ export const CartContext = (props) => {
 
         let dataDoc=[];
         docsResponse.docs.forEach((doc)=>{dataDoc = [...dataDoc,doc.data()]});
-        console.log(cartItems );
         let i = 0;
         dataDoc.forEach((item)=>{
             if(item.stock >= cartItems[i].quantity){
@@ -43,17 +40,25 @@ export const CartContext = (props) => {
             }
             i++
         });
-        withoutStock.push(1);
-        console.log(withoutStock);
         if (withoutStock.length === 0) {
             addDoc(orderCollection, order)
-          .then((res) => console.log(res.id))
+          .then((res) => {
+            console.log(res.id);
+            emailjs.send("service_sl9dgza","template_w8lnsyw",{
+                to_name: buyerData.name ,
+                id_purchase: res.id,
+                client_email: buyerData.email,
+                }, "9Ne19fQpA1thOpn_L")
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+          })
           .catch((err) => console.log("error", err));
           batch.commit();
-          console.log("works");
           setValidPurchase(true);
         } else {
-            console.log("works not");
             setInvalidPurchase(true);
         }
       };
