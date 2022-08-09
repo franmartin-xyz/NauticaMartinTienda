@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import {RiShoppingCart2Fill} from "react-icons/ri"
 import { cartContext } from "../../context/CartContext";
 import "./cartWidget.css"

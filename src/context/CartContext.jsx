@@ -1,11 +1,63 @@
-import React, { useState} from 'react'
-import {addDoc, collection, getFirestore, updateDoc, doc, writeBatch} from "firebase/firestore"
+import React, { useEffect, useState} from 'react'
+import {addDoc, collection, getFirestore, updateDoc, doc, writeBatch,getDocs,query,where,documentId} from "firebase/firestore"
 export const cartContext = React.createContext([]);
 
 export const CartContext = (props) => {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
-    // let items = localStorage.getItem("cart");
-    // items !== "" && setCartItems(items);
+    useEffect(()=>{   
+        let userCart = localStorage.getItem("cart");
+       if (userCart === null) {let voidArray = [];localStorage.setItem("cart",JSON.stringify(voidArray)); voidArray = [1]};
+    },[])
+
+    const sendPurchase = async (buyerData,setValidPurchase,setInvalidPurchase) => {
+        const db = getFirestore();
+        const orderCollection = collection(db, "orders");
+        const products = collection(db, "products");
+        const order = {
+          items: cartItems,
+          total: totalPrice(),
+          buyer: buyerData,
+          date: new Date().toLocaleString(),
+        };
+        // addDoc(orderCollection, order)
+        //   .then((res) => console.log(res.id))
+        //   .catch((err) => console.log("error", err));
+        const batch = writeBatch(db);
+        const idList = cartItems.map((product) => product.id);
+        const withoutStock = [];
+        const collectionRef = collection(db, "products");
+        const docsResponse = await getDocs(
+          query(collectionRef, where("id", "in", idList))
+        );
+
+        let dataDoc=[];
+        docsResponse.docs.forEach((doc)=>{dataDoc = [...dataDoc,doc.data()]});
+        console.log(cartItems );
+        let i = 0;
+        dataDoc.forEach((item)=>{
+            if(item.stock >= cartItems[i].quantity){
+               let prodRef = doc(db,"products",docsResponse.docs[i].id)
+                batch.update(prodRef,{ stock: dataDoc[i].stock - cartItems[i].quantity })
+            }else{
+                withoutStock.push({...cartItems[i]});
+            }
+            i++
+        });
+        withoutStock.push(1);
+        console.log(withoutStock);
+        if (withoutStock.length === 0) {
+            addDoc(orderCollection, order)
+          .then((res) => console.log(res.id))
+          .catch((err) => console.log("error", err));
+          batch.commit();
+          console.log("works");
+          setValidPurchase(true);
+        } else {
+            console.log("works not");
+            setInvalidPurchase(true);
+        }
+      };
+
     const sendDoc = (Data) =>{
         Data.forEach(o => {
         const db = getFirestore();
@@ -79,10 +131,11 @@ export const CartContext = (props) => {
     const clear = ()=>{setCartItems([]);
         localStorage.setItem("cart",JSON.stringify([]));
     }
-    const isInCart = (id)=>{ let items = JSON.parse(localStorage.getItem("cart")); 
+    const isInCart = (id)=>{ 
+    let items = JSON.parse(localStorage.getItem("cart")); 
     return items.findIndex(e=>{return e.id === id ? true : false })}
     return(
-    <cartContext.Provider value={{cartItems, setCartItems,addItem,removeItem,clear,isInCart,howManyItems,totalPrice,sendOrder,updateOrder,multipleUpdates,sendDoc}}>
+    <cartContext.Provider value={{cartItems,sendPurchase, setCartItems,addItem,removeItem,clear,isInCart,howManyItems,totalPrice,sendOrder,updateOrder,multipleUpdates,sendDoc}}>
         {props.children}
     </cartContext.Provider>
   )

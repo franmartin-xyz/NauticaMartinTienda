@@ -47,3 +47,82 @@
     text-align: end;
     width: fit-content;
 }
+.Modal__container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    color: white;
+    padding: 10px;
+}
+.Modal__title{
+    display: inline;
+    width: fit-content;
+    font-size: 3rem;
+    color: red;
+    font-weight: 650;
+}
+.Modal__form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.Modal__form input{
+    width: fit-content;
+    height: fit-content;
+    font-size: 2rem;
+}
+.Modal__span{
+    font-size: 2rem;
+    text-align: center;
+}
+#submitBtn{
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 8px;
+    width: fit-content; 
+   color: white;
+   cursor: pointer;
+}
+#submitBtn:hover{
+    background-color: #0A2F54;
+}
+.Modal__closeBtn{
+    font-size: 2rem;
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    width: fit-content; 
+   color: white;
+   cursor: pointer;
+}
+.SuccessfulPurchase__title{
+    font-size: 2rem;
+    display: inline;
+}
+.SuccessfulPurchase__container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    padding: 10px;
+}
+@media screen and (max-width: 450px) {
+    .Modal__title{
+        font-size: 2rem;
+    }
+    .Modal__span{
+        font-size: 1.5rem;
+    }
+    #submitBtn{
+        font-size: 1rem;
+    }
+    .Modal__form input{
+        font-size: 1.5rem;
+    }
+}

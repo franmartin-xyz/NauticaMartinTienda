@@ -15,12 +15,11 @@ const ItemListContainer = () => {
     e.preventDefault();
     let string = document.getElementById("search").value;
     const itemsFiltred = items.filter((item)=>{let t = item.title.toLowerCase(); return t.includes(string) })
-    console.log(string === "" || itemsFiltred.length === 0 )
     if ( string === "" || itemsFiltred.length === 0 ){
       setLoading(true);
       const db = getFirestore();
       const itemsCollection = collection(db, "products");
-      getDocs(itemsCollection).then((snapshot) => {const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));setItems(data);console.log(data)});
+      getDocs(itemsCollection).then((snapshot) => {const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));setItems(data);});
       setLoading(false);}
     else { setItems(itemsFiltred);}
   }
@@ -29,7 +28,7 @@ const ItemListContainer = () => {
     const db = getFirestore();
     const itemsCollection = collection(db, "products");
       if(param.name === undefined) { 
-        getDocs(itemsCollection).then((snapshot) => {const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));setItems(data)})
+        getDocs(itemsCollection).then((snapshot) => {const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));setItems(data);})
       }
        else{
         const q = query(itemsCollection,where("category","==",param.name));
