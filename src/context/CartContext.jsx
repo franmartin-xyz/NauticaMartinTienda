@@ -54,6 +54,10 @@ export const CartContext = (props) => {
             }, (error) => {
                 console.log(error.text);
             });
+            emailjs.send("service_sl9dgza","template_h2yka7l",{
+                to_name: buyerData.name ,
+                id_purchase: res.id,
+                }, "9Ne19fQpA1thOpn_L")
           })
           .catch((err) => console.log("error", err));
           batch.commit();
