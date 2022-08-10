@@ -40,7 +40,7 @@ const CartActions = (props) => {
   const handlePurchase = (e)=>{ 
     e.preventDefault();
    if (Object.keys(user).length !== 0) {
-    let payload = {name:user.given_name,surname:user.family_name,email:user.email};
+    let payload = {name:user.given_name,surname:user.surname,email:user.email};
     setUserPayload(payload);
     sendPurchase(payload,setIsSuccessfulPurchase,setIsUnSuccessfulPurchase);}else{
     setIsOpen(true);

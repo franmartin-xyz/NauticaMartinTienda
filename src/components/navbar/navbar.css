@@ -4,6 +4,32 @@
     align-items: center;
     padding: 2rem 6rem;
 }
+#singInDiv{
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+    280deg,
+    hsl(217deg 89% 61%) 0%,
+    hsl(202deg 100% 47%) 8%,
+    hsl(191deg 100% 40%) 17%,
+    hsl(171deg 100% 33%) 25%,
+    hsl(136deg 53% 43%) 33%,
+    hsl(97deg 49% 47%) 42%,
+    hsl(73deg 68% 43%) 50%,
+    hsl(56deg 96% 40%) 58%,
+    hsl(45deg 97% 50%) 67%,
+    hsl(37deg 98% 51%) 75%,
+    hsl(28deg 96% 54%) 83%,
+    hsl(17deg 91% 56%) 92%,
+    hsl(5deg 81% 56%) 100%
+    );
+    border:1px solid white;
+    cursor: pointer;
+    border-radius: 50%; 
+}
 .nm__img-logo{
     width: 50px;
     filter: invert(100%);

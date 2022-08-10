@@ -4,34 +4,36 @@ import {CartWidget} from "../index"
 import logo from "../../assets/logo.svg"
 import "./navbar.css"
 import {Link} from "react-router-dom";
-import jwt_decode from "jwt-decode"
+import {signInWithPopup} from "firebase/auth"
+import {RiGoogleFill} from "react-icons/ri"
 import { userLoginContext } from '../../context/LoginContext'
+import { provider,auth} from "../../index"
+import jwt_decode from "jwt-decode"
 const Navbar = () => {
   const {user, setUser} = useContext(userLoginContext);
   // const [user,setUser] = useState({});
   const [toggleMenu, setToggleMenu] = useState(false);
-  const handleLogin = (res)=>{
-    let userLoginJwt = jwt_decode(res.credential);
-    console.log(userLoginJwt);
-    setUser(userLoginJwt);
-    document.getElementById("singInDiv").hidden = true;
-  };
-  useEffect(()=>{
-/* global google*/
-window.google.accounts.id.initialize({
-  client_id:"322253423612-n7fm6e1667nkp6pfkj41caotj0qk6254.apps.googleusercontent.com",
-  callback: handleLogin,
-  ux_mode:"popup",
-});
-window.google.accounts.id.renderButton(
-  document.getElementById("singInDiv"),
-  {theme:"outline",size:"medium",ux_mode:"redirect"},
-)
-  },[])
+  
+  const handleLogin = ()=>{
+    function singInWithGoogle (){
+      signInWithPopup(auth,provider)
+      .then((res)=> {
+        console.log (jwt_decode(res.user.accessToken));
+        const userMail = jwt_decode(res.user.accessToken).email;
+        let userName = jwt_decode(res.user.accessToken).name;
+        userName = userName.split(" ");
+        console.log(userMail);
+        setUser({email:userMail,given_name:userName[0],surname:userName[1]});
+      })
+      .catch(err => {console.log (err)})
+      }
+    singInWithGoogle();
+  }; 
+
   function handleSingOut(e){
     setUser({});
-    document.getElementById("singInDiv").hidden = false;
   }
+  const googleWidget = {fill:"black",width:"30px", height:"30px"}
   return (
     <nav className='nm__navbar'>
       <div className='nm__navbar-links'>
@@ -46,7 +48,9 @@ window.google.accounts.id.renderButton(
           <p><Link to="NauticaMartinTienda/products">Productos</Link></p>
         </div>
       </div>
-      <div id='singInDiv'></div>
+      {Object.keys(user).length == 0 &&
+        <div id='singInDiv' onClick={()=>{handleLogin()}}><RiGoogleFill style={googleWidget}/></div>
+      }
       {Object.keys(user).length != 0 &&  <div className="nm__navbar-sign">
         <span className='nm__navbar-sign-welcome'>Hola! {user.given_name}</span>
         <button type="button" onClick={(e)=>handleSingOut(e)}>Sign Out</button>
