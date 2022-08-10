@@ -5,6 +5,7 @@
     border-bottom: 1px solid white;
     width: 90%;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .Cart__container-title{
     display: flex;
@@ -41,4 +42,18 @@
 }
 .Cart__btn:hover{
     background: #0A2F54;
+}
+@media screen and (max-width: 1025px) {
+    .Cart__container{
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column; 
+        gap:5px;
+    }
+    .Cart__container-title{
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        gap: 10px;
+    }
 }

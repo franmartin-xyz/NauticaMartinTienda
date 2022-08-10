@@ -22,4 +22,12 @@
 .CartContainer__title:hover{
     background-color: #0A2F54;
 }
+@media screen and (max-width: 450px) {
+    .CartContainer__container{
+        min-height: 98vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+    }
+}
 

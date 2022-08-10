@@ -21,10 +21,11 @@ const Navbar = () => {
 window.google.accounts.id.initialize({
   client_id:"322253423612-n7fm6e1667nkp6pfkj41caotj0qk6254.apps.googleusercontent.com",
   callback: handleLogin,
+  ux_mode:"popup",
 });
 window.google.accounts.id.renderButton(
   document.getElementById("singInDiv"),
-  {theme:"outline",size:"medium"}
+  {theme:"outline",size:"medium",ux_mode:"redirect"},
 )
   },[])
   function handleSingOut(e){

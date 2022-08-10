@@ -43,7 +43,6 @@ export const CartContext = (props) => {
         if (withoutStock.length === 0) {
             addDoc(orderCollection, order)
           .then((res) => {
-            console.log(res.id);
             emailjs.send("service_sl9dgza","template_w8lnsyw",{
                 to_name: buyerData.name ,
                 id_purchase: res.id,
@@ -58,6 +57,11 @@ export const CartContext = (props) => {
                 to_name: buyerData.name ,
                 id_purchase: res.id,
                 }, "9Ne19fQpA1thOpn_L")
+                .then((result) => {
+                    console.log(result.text);
+                }, (error) => {
+                    console.log(error.text);
+                });
           })
           .catch((err) => console.log("error", err));
           batch.commit();

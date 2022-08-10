@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items:center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .CartCartContainer__buy{
     display: flex;
@@ -125,4 +126,35 @@
     .Modal__form input{
         font-size: 1.5rem;
     }
+}
+@media screen and (max-width: 615px) {
+    .CartCartContainer__Actions{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width:100vw;
+        gap: 60px;
+    }
+    .CartContainer__btnClearUp{
+        margin:0px;
+        width: 100vw;
+        align-self: center;
+    }
+    .CartCartContainer__buy{
+        justify-content: center;
+        align-items: center;
+        width:100vw;
+        align-self: center;
+        margin: 0;
+    }
+    .CartContainer__span{
+        width: 100vw;
+        font-size: 3rem;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 615px){
+    .CartCartContainer__Actions{
+        
+    }    
 }
