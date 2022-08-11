@@ -33,7 +33,7 @@ const Navbar = () => {
   function handleSingOut(e){
     setUser({});
   }
-  const googleWidget = {fill:"black",width:"30px", height:"30px"}
+  const googleWidget = {fill:`white`,width:"30px", height:"30px"}
   return (
     <nav className='nm__navbar'>
       <div className='nm__navbar-links'>
@@ -41,10 +41,8 @@ const Navbar = () => {
         <Link to="NauticaMartinTienda/"><img className='nm__img-logo' src={logo} alt="logo" /></Link>
         </div>
         <div className='nm__navbar-links_container'>
-          <p><Link to="NauticaMartinTienda/">Home</Link></p>
-          <p><Link to="NauticaMartinTienda/about">About</Link></p>
-          <p><Link to="NauticaMartinTienda/testimonials">Testimonials</Link></p>
-          <p><Link to="NauticaMartinTienda/contact">Contact</Link></p>
+          <p><Link to="NauticaMartinTienda/">Inico</Link></p>
+          <p><Link to="NauticaMartinTienda/mypurchase">Mis Compras</Link></p>
           <p><Link to="NauticaMartinTienda/products">Productos</Link></p>
         </div>
       </div>
@@ -62,10 +60,8 @@ const Navbar = () => {
         {toggleMenu && (
         <div className="nm__navbar-menu_container scale-up-center">
           <div className="nm__navbar-menu_container-links">
-          <p><Link to="NauticaMartinTienda/">Home</Link></p>
-          <p><Link to="NauticaMartinTienda/about">About</Link></p>
-          <p><Link to="NauticaMartinTienda/testimonials">Testimonials</Link></p>
-          <p><Link to="NauticaMartinTienda/contact">Contact</Link></p>
+          <p><Link to="NauticaMartinTienda/">Inicio</Link></p>
+          <p><Link to="NauticaMartinTienda/mypurchase">Mis Compras</Link></p>
           <p><Link to="NauticaMartinTienda/products">Productos</Link></p>
           </div>
         </div>
