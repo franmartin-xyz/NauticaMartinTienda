@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import emailjs from "@emailjs/browser";
-import {addDoc, collection, getFirestore, updateDoc, doc, writeBatch,getDocs,query,where,documentId} from "firebase/firestore"
+import {addDoc, collection, getFirestore, updateDoc, getDoc, doc, writeBatch,getDocs,query,where,documentId} from "firebase/firestore"
 export const cartContext = React.createContext([]);
 
 export const CartContext = (props) => {
@@ -69,6 +69,30 @@ export const CartContext = (props) => {
         } else {
             setInvalidPurchase(true);
         }
+      };
+
+      const findPurchases = async (email)=>{
+        // console.log(email)
+        // const db = getFirestore();
+        // const collectionRef = collection(db, "orders");
+        // const docsResponse = await getDocs(
+        //     query(collectionRef, where("total", "in", email)))
+        //     .then(res => {
+        //         docsResponse.forEach(doc => console.log(doc.id, ">",doc.data()));
+        //         console.log(res)
+        //     })
+        //     .catch(err => console.log(err));
+        }
+
+      const requestPurchase = async (userId,setPurchases,setSwitchState,setSwitchState2) =>{
+        const db = getFirestore();
+        const docRef = doc(db,"orders",userId);
+        const docsResponse = await getDoc(docRef)
+        .then(res => {
+            res.data() !== undefined && setPurchases([res.data(),userId]);
+            res.data() !== undefined && setSwitchState(true);
+            res.data() === undefined && setSwitchState2(true);})
+        .catch((err)=> {setPurchases([]); console.log(err)});
       };
 
     const sendDoc = (Data) =>{
@@ -148,7 +172,7 @@ export const CartContext = (props) => {
     let items = JSON.parse(localStorage.getItem("cart")); 
     return items.findIndex(e=>{return e.id === id ? true : false })}
     return(
-    <cartContext.Provider value={{cartItems,sendPurchase, setCartItems,addItem,removeItem,clear,isInCart,howManyItems,totalPrice,sendOrder,updateOrder,multipleUpdates,sendDoc}}>
+    <cartContext.Provider value={{cartItems,findPurchases,requestPurchase,sendPurchase, setCartItems,addItem,removeItem,clear,isInCart,howManyItems,totalPrice,sendOrder,updateOrder,multipleUpdates,sendDoc}}>
         {props.children}
     </cartContext.Provider>
   )

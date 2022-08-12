@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
       </div>
       {Object.keys(user).length == 0 &&
-        <div id='singInDiv' onClick={()=>{handleLogin()}}><RiGoogleFill style={googleWidget}/></div>
+        <div id='singInDiv' onClick={()=>{handleLogin()}}><RiGoogleFill style={googleWidget}/><span>Inicia Sesión</span></div>
       }
       {Object.keys(user).length != 0 &&  <div className="nm__navbar-sign">
         <span className='nm__navbar-sign-welcome'>Hola! {user.given_name}</span>
