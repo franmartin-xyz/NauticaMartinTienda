@@ -41,7 +41,7 @@ const Navbar = () => {
         <Link to="NauticaMartinTienda/"><img className='nm__img-logo' src={logo} alt="logo" /></Link>
         </div>
         <div className='nm__navbar-links_container'>
-          <p><Link to="NauticaMartinTienda/">Inico</Link></p>
+          <p><Link to="NauticaMartinTienda/">Inicio</Link></p>
           <p><Link to="NauticaMartinTienda/mypurchase">Mis Compras</Link></p>
           <p><Link to="NauticaMartinTienda/products">Productos</Link></p>
         </div>
