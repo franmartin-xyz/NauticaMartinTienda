@@ -8,6 +8,7 @@
 }
 .footer__cont-socials{
     height: fit-content;
+    gap: 5px;
 }
 .footer__cont-resources{
     height: fit-content;
